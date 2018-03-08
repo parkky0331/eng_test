@@ -17,26 +17,24 @@ $connect = mysqli_connect("localhost","parkky0331","parkky0331_db", "parkky0331"
 			<td>mean</td>
 		</tr>
 		<?
-		for ($count=0; $count < 10 ; $count++) { 
-			# code...
-			$value = mt_rand(1, 100);
-			$dbArray[$count] = $value;
+		$sql = "select * from test_list order by word_num";
+		$result = mysqli_query($connect, $sql);
+		$count = 1;
 
-			$sql = "select * from test_list	where word_num = '$dbArray[$count]'";
-
-			$result = mysqli_query($connect, $sql);
-			$row = mysqli_fetch_array($result);
+		while ($row = mysqli_fetch_array($result)) {
 
 			echo "<tr align='center'>
 			<td>$row[word_num]</td>
 			<td>$row[word_eng]</td>
 			<td>$row[word_mean]</td>
 			</tr>";
-			}
-			mysqli_close($connect);
+
+			$count++;
+		}
+		mysqli_close($connect);
 		?>
 
-</table>
+	</table>
 
 </body>
 </html>
