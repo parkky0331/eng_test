@@ -2,24 +2,25 @@
 <html>
 <head>
   <title></title>
+  <meta charset="utf-8">
   <link rel = "stylesheet" type="text/css" href="css/style.css"></link>
-  <link rel = "stylesheet" type="text/css" href="css/fontawesome.css">
 </head>
 <body>
     <div class="container">
       <img src="img/mark.png">
-      <form>
+      <form method="post" action="/login_check.php">
         <div class="form-input">
-          <input type="text" name="username"
-          placeholder="Enter Username">
+          <img  src="img/user.png">
+          <input type="text" name="student_code" placeholder="Enter Student Code" >
         </div>
         <div class="form-input">
-          <input type="password" name="password"
-          placeholder="Enter Password">
+          <img  src="img/Lock.png">
+          <input type="password" name="password" placeholder="Enter Password">
         </div>
         <input type="submit" name="submit" value="LOGIN" class="btn-login"><br>
-        <a href="#">Forget password?</a>
       </form>
+      <button class="btn-sign" onclick="location.href='signUp.html'">Sign Up</button>
+      <button class="btn-forgot" onclick="location.href='#'">find pw</button>
      </div>
 </body>
 </html>

@@ -1,0 +1,32 @@
+﻿
+CREATE TABLE user_info_max
+(
+    `student_code`   INT            NOT NULL     COMMENT '학번', 
+    `name`           VARCHAR(45)    NOT NULL     COMMENT '학생이름', 
+    `student_class`  VARCHAR(45)    NOT NULL     COMMENT '학년-반', 
+    `student_score`  INT            NULL         COMMENT '점수', 
+    PRIMARY KEY (student_code)
+);
+
+
+CREATE TABLE user_info_min
+(
+    `student_code`  INT            NOT NULL     COMMENT '학번', 
+    `name`          VARCHAR(45)    NOT NULL     COMMENT '학생이름', 
+    `admin`         BOOLEAN        NOT NULL     COMMENT '관리자권한', 
+    PRIMARY KEY (student_code, admin)
+);
+
+ALTER TABLE user_info_min ADD CONSTRAINT FK_user_info_min_student_code_user_info_max_student_code FOREIGN KEY (student_code)
+ REFERENCES user_info_max (student_code)  ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+
+CREATE TABLE test_list
+(
+    `word_num`   INT            NOT NULL    AUTO_INCREMENT COMMENT '단어_번호', 
+    `word_eng`   VARCHAR(45)    NOT NULL     COMMENT '단어_영어', 
+    `word_mean`  VARCHAR(45)    NOT NULL     COMMENT '단어_뜻', 
+    PRIMARY KEY (word_num)
+);
+
+

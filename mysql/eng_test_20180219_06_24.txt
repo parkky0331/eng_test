@@ -1,0 +1,36 @@
+﻿-- 테이블 순서는 관계를 고려하여 한 번에 실행해도 에러가 발생하지 않게 정렬되었습니다.
+
+-- user_info_max Table Create SQL
+CREATE TABLE user_info_max
+(
+    `student_code`   INT            NOT NULL, 
+    `name`           VARCHAR(45)    NOT NULL, 
+    `student_class`  VARCHAR(45)    NOT NULL, 
+    `student_score`  INT            NULL, 
+    PRIMARY KEY (student_code)
+);
+
+
+-- user_info_min Table Create SQL
+CREATE TABLE user_info_min
+(
+    `student_code`  INT            NOT NULL, 
+    `name`          VARCHAR(45)    NOT NULL, 
+    `admin`         BOOLEAN        NOT NULL, 
+    PRIMARY KEY (student_code, admin)
+);
+
+ALTER TABLE user_info_min ADD CONSTRAINT FK_user_info_min_student_code_user_info_max_student_code FOREIGN KEY (student_code)
+ REFERENCES user_info_max (student_code)  ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+
+-- test_list Table Create SQL
+CREATE TABLE test_list
+(
+    `word_num`   INT            NOT NULL    AUTO_INCREMENT, 
+    `word_eng`   VARCHAR(45)    NOT NULL, 
+    `word_mean`  VARCHAR(45)    NOT NULL, 
+    PRIMARY KEY (word_num)
+);
+
+
