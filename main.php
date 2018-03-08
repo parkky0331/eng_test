@@ -10,13 +10,13 @@
     <img src="img/mark2.png">
     <form>
       <div class="menu">
-        <img src="img/btn1.png">
+        <a href="#"><img src="img/btn1.png"></a>
       </div>
       <div class="menu2">
-        <img src="img/btn2.png">
+        <a href="#"><img src="img/btn2.png"></a>
       </div>
       <div class="menu3">
-        <img src="img/btn3.png">
+        <a href="#"><img src="img/btn3.png"></a>
       </div>
     </form>
   </div>
