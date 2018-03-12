@@ -9,13 +9,13 @@
   <div class="container">
     <img src="img/mark2.png">
     <form>
-      <div class="menu">
-        <a href="#"><img src="img/btn1.png"></a>
+      <div class="menu"><!-- 영단어 공부 -->
+        <a href="sql_test_list_check.php"><img src="img/btn1.png"></a>
       </div>
-      <div class="menu2">
-        <a href="#"><img src="img/btn2.png"></a>
+      <div class="menu2"><!-- 영단어 시험 -->
+        <a href="test.php"><img src="img/btn2.png"></a>
       </div>
-      <div class="menu3">
+      <div class="menu3"><!-- 시험 결과 -->
         <a href="#"><img src="img/btn3.png"></a>
       </div>
     </form>

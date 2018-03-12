@@ -1,0 +1,39 @@
+﻿-- 테이블 순서는 관계를 고려하여 한 번에 실행해도 에러가 발생하지 않게 정렬되었습니다.
+
+-- test_list_collect Table Create SQL
+CREATE TABLE test_list_collect
+(
+    `word_num`    INT            NOT NULL, 
+    `word_eng`    VARCHAR(45)    NOT NULL, 
+    `word_mean`   VARCHAR(45)    NOT NULL, 
+    `word_order`  INT            NOT NULL    AUTO_INCREMENT, 
+    PRIMARY KEY (word_num, word_order)
+);
+
+
+-- test_list Table Create SQL
+CREATE TABLE test_list
+(
+    `word_num`   INT            NOT NULL, 
+    `word_eng`   VARCHAR(45)    NOT NULL, 
+    `word_mean`  VARCHAR(45)    NOT NULL, 
+    PRIMARY KEY (word_num)
+);
+
+ALTER TABLE test_list ADD CONSTRAINT FK_test_list_word_num_test_list_collect_word_num FOREIGN KEY (word_num)
+ REFERENCES test_list_collect (word_num)  ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+
+-- user_info_max Table Create SQL
+CREATE TABLE user_info_max
+(
+    `student_code`   INT            NOT NULL, 
+    `password`       VARCHAR(45)    NOT NULL, 
+    `name`           VARCHAR(45)    NOT NULL, 
+    `student_class`  VARCHAR(45)    NOT NULL, 
+    `student_score`  INT            NULL, 
+    `admin`          INT            NULL, 
+    PRIMARY KEY (student_code)
+);
+
+

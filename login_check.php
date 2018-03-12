@@ -30,7 +30,7 @@ $connect = mysqli_connect("localhost","parkky0331","parkky0331_db", "parkky0331"
 				if($row[password] == $password){
 					$_SESSION['student_code'] = $student_code;
 					if(isset($_SESSION['student_code'])){
-						if($row_a[admin] == 1){
+						if($row_a[admin] != 0){
 							echo "$row_a[admin]";
 							echo "관리자입니다.";
 							header('Location: admin.php');

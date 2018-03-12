@@ -1,0 +1,21 @@
+﻿-- 테이블 순서는 관계를 고려하여 한 번에 실행해도 에러가 발생하지 않게 정렬되었습니다.
+
+-- user_info Table Create SQL
+CREATE TABLE user_info
+(
+    `student_code`  INT            NOT NULL, 
+    `name`          VARCHAR(45)    NOT NULL, 
+    `admin`         BOOL           NULL, 
+    PRIMARY KEY (student_code, admin)
+);
+
+
+-- test_list Table Create SQL
+CREATE TABLE test_list
+(
+    `word_num`   INT            NULL        AUTO_INCREMENT, 
+    `word_eng`   VARCHAR(45)    NULL, 
+    `word_mean`  VARCHAR(45)    NULL    
+);
+
+

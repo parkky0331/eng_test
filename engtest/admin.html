@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="shortcut icon" type="image/x-icon" href="" />
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" user-scalable=no minimum-scale=1/>
 	<!-- <link rel="stylesheet" href="css/bootstrap.css"> -->
@@ -10,11 +11,11 @@
 	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script> -->
 	<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script> -->
 	<style>
-	.clearfix{
-		overflow: auto;
-	}
-</style>
-<title>모바일인터넷과 영단어</title>
+		.clearfix{
+			overflow: auto;
+		}
+	</style>
+	<title>모바일인터넷과 영단어</title>
 </head>
 <body>
 	<div data-role="page" id="page_index" data-theme="b">
@@ -25,36 +26,29 @@
 		<div data-role="content">
 			<h1>관리자 페이지</h1>
 			<h3>대림대학교 모바일인터넷과</h3>
-			<?
-			session_start();
-			if(!isset($_SESSION['student_code'])){
-				header('Location: ./login.html');
-			}
-			function logout(){
-				header('Location: ./logout.php');
-			}
-			if(isset($_GET['logout'])){
-				logout();
-			}
-			echo "홈(로그인 성공)";
-			echo "<a href=admin.php?logout=true>로그아웃</a>";
-			?>
-			<button class="btn-sign" onclick="location.href='sql_test.php'">문제 리스트 생성</button>
-			<button class="btn-sign" onclick="location.href='sql_test_list_check.php'">생성된 문제 리스트 확인</button>
+			<div align="center">
+				<img src="src/dept_logo.png" alt="neon-burger" height="50%" width="50%">
+			</div>
+			<form action="GET">
+				아 이 디 : <input type="text" name="userId" size="20"><br>
+				비밀 번호 : <input type="password" name="userPw" size="20">
+
+			<input type="submit" onclick="location.href='test.html'" value="로그인">
+			</form>
 		</div>
 	</div>
 
 </body>
-<script>
-	var date = new Date();
+	<script>
+		var date = new Date();
 
-	var year = date.getFullYear();
-	var month = date.getMonth()+1;
-	var day = date.getDate();
-	if (("" + month).length == 1) { month = "0" + month; }
-	if (("" + day).length   == 1) { day   = "0" + day;   }
+		var year = date.getFullYear();
+		var month = date.getMonth()+1;
+		var day = date.getDate();
+		if (("" + month).length == 1) { month = "0" + month; }
+		if (("" + day).length   == 1) { day   = "0" + day;   }
 
-	document.getElementById("date").innerHTML = year + month + day;
+		document.getElementById("date").innerHTML = year + month + day;
 
-</script>
+	</script>
 </html>

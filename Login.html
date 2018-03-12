@@ -6,21 +6,22 @@
   <link rel = "stylesheet" type="text/css" href="css/style.css"></link>
 </head>
 <body>
-    <div class="container">
-      <img src="img/mark.png">
-      <form method="post" action="/login_check.php">
-        <div class="form-input">
-          <img  src="img/user.png">
-          <input type="text" name="student_code" placeholder="Enter Student Code" >
-        </div>
-        <div class="form-input">
-          <img  src="img/Lock.png">
-          <input type="password" name="password" placeholder="Enter Password">
-        </div>
-        <input type="submit" name="submit" value="LOGIN" class="btn-login"><br>
-      </form>
-      <button class="btn-sign" onclick="location.href='signUp.html'">Sign Up</button>
-      <button class="btn-forgot" onclick="location.href='#'">find pw</button>
-     </div>
+  <div class="container">
+    <img src="img/mark.png">
+    <form method="post" action="/login_check.php">
+      <div class="form-input">
+        <img  src="img/user.png">
+        <input type="text" name="student_code" placeholder="Enter Student Code" >
+      </div>
+      <div class="form-input">
+        <img  src="img/Lock.png">
+        <input type="password" name="password" placeholder="Enter Password">
+      </div>
+      <input type="submit" name="submit" value="LOGIN" class="btn-login"><br>
+    </form>
+    <a href="https://pt.daelim.ac.kr/">Forget Password?</a>
+    &nbsp&nbsp&nbsp
+    <a href="./signUp.html">Sign Up ID/PW</a>
+  </div>
 </body>
 </html>
