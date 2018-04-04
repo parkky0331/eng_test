@@ -1,17 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title></title>
+  <link rel="shortcut icon" type="image/x-icon" href="" />
   <meta charset="utf-8">
-  <link rel = "stylesheet" type="text/css" href="css/style.css"></link>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" user-scalable=no minimum-scale=1/>
+  <!-- <link rel="stylesheet" href="css/bootstrap.css"> -->
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script> -->
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script> -->
+  <script type="text/javascript" src="./js/js-all.js"></script>
+  <title>모바일인터넷과 영단어</title>
 </head>
 <body>
-  <div class="container">
-    <img src="img/mark.png">
+  <div class="container" align="center">
+    <img width="20%" height="20%" src="img/mark.png">
     <form method="post" action="/login_check.php">
       <div class="form-input">
-        <img  src="img/user.png">
+        <img src="img/user.png">
         <input type="text" name="student_code" placeholder="Enter Student Code" >
+
+<!-- 
+        <input name="img_box" type="text" style="background:url(img/user.png) no-repeat;" onFocus="return Img_in();" onFocusout="return Img_out(this.value);" placeholder="       Enter Student Code">
+
+        <input name="img_box2" type="text" style="background:url(img/Lock.png) no-repeat;" onFocus="return Img_in2();" onFocusout="return Img_out2(this.value);">
+ -->
       </div>
       <div class="form-input">
         <img  src="img/Lock.png">
