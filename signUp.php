@@ -46,11 +46,13 @@
 			}
 
 			$signup = mysqli_query($mysqli, "insert into user_info_max (student_code, password, name, student_class) value('$student_code', '$password', '$name', '$student_class')");
-			$signup = mysqli_query($mysqli, "insert into user_info_min (student_code, name) value('$student_code', '$name')");
 
 			if($signup){
 				echo "회원가입이 정상적으로 완료 되었습니다.";
 				echo "<a href=login.html>Back Page</a>";
+				echo '<script language="text/javascript>';
+				echo 'alert("Register Done!")';
+				echo '</script>';
 			}
 			?>
 
