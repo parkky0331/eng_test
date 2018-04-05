@@ -47,7 +47,7 @@ $connect = mysqli_connect("localhost","parkky0331","parkky0331_db", "parkky0331"
 						echo "관리자가 아닙니다.";
 						header('Location: main.php');
 					}else{
-						echo "sesstion save failed";
+						echo "session save failed";
 					}
 				}else{
 					echo "wrong id or pw<br>";
