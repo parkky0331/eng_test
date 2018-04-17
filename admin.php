@@ -9,6 +9,7 @@
 	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script> -->
 	<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script> -->
+	<script type="text/javascript" src="./js/js-all.js"></script>
 	<style>
 	.clearfix{
 		overflow: auto;
@@ -17,18 +18,20 @@
 <title>모바일인터넷과 영단어</title>
 </head>
 <body>
-	<div data-role="page" id="page_index" data-theme="b">
-		<div data-role="header" id="clearfix">
-			<h1 id="date"></h1>
-			<button type="button" onclick="location.href='index.html'">메인페이지</button>
+	<div data-role="page" id="page_index" data-theme="a">
+		<div data-role="header" align="center">
+			<p id="date_write"></p>
+			<script>
+				dateWrite();
+			</script>
 		</div>
 		<div data-role="content">
 			<h1>관리자 페이지</h1>
 			<h3>대림대학교 모바일인터넷과</h3>
 			<?
-			session_start();
+			// session_start();
 			if(!isset($_SESSION['student_code'])){
-				header('Location: ./login.html');
+				header('Location: ./login.php');
 			}
 			function logout(){
 				header('Location: ./logout.php');
@@ -45,16 +48,4 @@
 	</div>
 
 </body>
-<script>
-	var date = new Date();
-
-	var year = date.getFullYear();
-	var month = date.getMonth()+1;
-	var day = date.getDate();
-	if (("" + month).length == 1) { month = "0" + month; }
-	if (("" + day).length   == 1) { day   = "0" + day;   }
-
-	document.getElementById("date").innerHTML = year + month + day;
-
-</script>
 </html>
