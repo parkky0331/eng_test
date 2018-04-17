@@ -13,25 +13,20 @@
   <script type="text/javascript" src="./js/js-all.js"></script>
 </head>
 <body>
-	<div class="container" align="center">
+	<div class="container" align="">
 		<img width="20%" src="img/signup.png">
-		<form action="./signUp.php" method="post">
-			<div>
-				<input type="text" name="student_code" placeholder="Enter Student Code"
-			</div>
-			<div>
+		<form action="./signUp.php" method="post" enctype="multipart/form-data">
+			<legend><h3>학번</h3></legend>
+				<input type="text" name="student_code" placeholder="Enter Student Code">
+			<legend><h3>비밀번호</h3></legend>
 				<input type="password" name="password" placeholder="Enter Password">
-			</div>
-			<div>
+			<legend><h3>비밀번호 재입력</h3></legend>
 				<input type="password" name="password_re" placeholder="reEnter Password">
-			</div>
-			<div>
-				<input type="text" name="name" placeholder="Enter Eng Name">
-			</div>
-			<div>
+			<legend><h3>이름</h3></legend>
+				<input type="text" name="name" placeholder="Enter Name">
+			<legend><h3>학년 / 반</h3></legend>
 				<input type="text" name="student_class" placeholder="Enter Class(ex,1-1)">
-			</div>
-			<input type="submit" name="submit" value="Register" class="btn-register"><br>
+			<input type="submit" name="submit" value="Register" class="btn-register">
 		</form>
 
 	</div>
