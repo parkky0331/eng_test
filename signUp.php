@@ -54,7 +54,7 @@
 				echo 'alert("Register Done!")';
 				echo '</script>';
 				echo "회원가입이 정상적으로 완료 되었습니다.";
-				echo "<a href=login.html>Back Page</a>";
+				echo "<a href=login.php>Back Page</a>";
 			}
 			?>
 		</div>
