@@ -1,7 +1,14 @@
 <?
 if(!isset($_SESSION)) 
 { 
-  session_start(); 
+  session_start();
+}else{
+
+  $connect = mysqli_connect("localhost","parkky0331","parkky0331_db", "parkky0331");
+  $student_code = $_SESSION['student_code'];
+  $admin_check = "select admin from user_info_max where student_code = '$student_code'";
+  $admin = mysqli_query($connect, $admin_check);
+  $row_admin = mysqli_fetch_array($admin);
 }
 ?>
 <!DOCTYPE html>
@@ -40,7 +47,7 @@ if(!isset($_SESSION))
         echo "<p><strong>$name</strong>(";
         echo $_SESSION["student_code"];
         echo ")님은 이미 로그인하고 있습니다.</br>";
-        if($_SESSION['admin'] != '0'){
+        if($row_admin['admin'] != 0){
           echo "<a href=\"admin.php\">[돌아가기]</a> ";
         }else{
           echo "<a href=\"main.php\">[돌아가기]</a> ";          

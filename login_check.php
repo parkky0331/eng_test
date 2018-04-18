@@ -49,7 +49,7 @@ $admin = mysqli_query($connect, $admin_check);
 					// session_start();
 					$_SESSION['student_code'] = $student_code;
 					$_SESSION['name'] = $name;
-					$_SESSION['admin'] = $admin;
+					$_SESSION['admin'] = $row_admin;
 					if(isset($_SESSION['student_code'])){
 						if($row_admin['admin'] != 0){
 							//관리자로 로그인 했을 때 관리자 페이지로 리다이렉션
