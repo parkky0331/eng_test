@@ -1,6 +1,7 @@
 <?
 //DB연결
-$connect = mysqli_connect("localhost","parkky0331","parkky0331_db", "parkky0331");
+include_once $_SERVER['DOCUMENT_ROOT']."./inc/conn.inc";
+$conn = getConnection();
 //이전페이지에서 학번, 비밀번호 받아옴
 $student_code = $_REQUEST['student_code'];
 $name = $_REQUEST['name'];
@@ -10,8 +11,8 @@ $password = $_REQUEST['password'];
 //DB쿼리문 및 실행결과 저장
 $check = "select * from user_info_max where student_code = '$student_code'";
 $admin_check = "select admin from user_info_max where student_code = '$student_code'";
-$result = mysqli_query($connect, $check);
-$admin = mysqli_query($connect, $admin_check);
+$result = mysqli_query($conn, $check);
+$admin = mysqli_query($conn, $admin_check);
 
 ?>
 <!DOCTYPE html>
@@ -30,7 +31,7 @@ $admin = mysqli_query($connect, $admin_check);
 	<title>모바일인터넷과 영단어</title>
 </head>
 <body>
-	<div data-role="page" id="page_index" data-theme="">
+	<div data-role="page" id="page_index" data-theme="a">
 		<div data-role="header" align="center">
 			<p id="date_write"></p>
 			<script>

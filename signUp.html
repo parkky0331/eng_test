@@ -1,34 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="shortcut icon" type="image/x-icon" href="" />
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" user-scalable=no minimum-scale=1/>
-  <!-- <link rel="stylesheet" href="css/bootstrap.css"> -->
-  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script> -->
-  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script> -->
-  <script type="text/javascript" src="./js/js-all.js"></script>
+	<link rel="shortcut icon" type="image/x-icon" href="" />
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" user-scalable=no minimum-scale=1/>
+	<!-- <link rel="stylesheet" href="css/bootstrap.css"> -->
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script> -->
+	<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script> -->
+	<script type="text/javascript" src="./js/js-all.js"></script>
+	<title>모바일인터넷과 영단어</title>
 </head>
 <body>
-	<div class="container" align="">
-		<img width="20%" src="img/signup.png">
-		<form action="./signUp.php" method="post" enctype="multipart/form-data">
-			<legend><h3>학번</h3></legend>
+	<div data-role="page" id="page_index" data-theme="a">
+		<div data-role="header" align="center">
+			<p id="date_write"></p>
+			<script>
+				dateWrite();
+			</script>
+		</div>
+		<div class="content">
+			<img style="width: 100px; height: 100px; " src="img/signup.png">
+			<form action="./signUp.php" method="post" enctype="multipart/form-data">
+				<legend><h3>학번</h3></legend>
 				<input type="text" name="student_code" placeholder="Enter Student Code">
-			<legend><h3>비밀번호</h3></legend>
+				<legend><h3>비밀번호</h3></legend>
 				<input type="password" name="password" placeholder="Enter Password">
-			<legend><h3>비밀번호 재입력</h3></legend>
+				<legend><h3>비밀번호 재입력</h3></legend>
 				<input type="password" name="password_re" placeholder="reEnter Password">
-			<legend><h3>이름</h3></legend>
+				<legend><h3>이름</h3></legend>
 				<input type="text" name="name" placeholder="Enter Name">
-			<legend><h3>학년 / 반</h3></legend>
+				<legend><h3>학년 / 반</h3></legend>
 				<input type="text" name="student_class" placeholder="Enter Class(ex,1-1)">
-			<input type="submit" name="submit" value="Register" class="btn-register">
-		</form>
+				<input type="submit" name="submit" value="Register" class="btn-register">
+			</form>
 
+		</div>
 	</div>
 </body>
 </html>

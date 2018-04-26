@@ -1,5 +1,6 @@
 <?
-$connect = mysqli_connect("localhost","parkky0331","parkky0331_db", "parkky0331");
+  include_once $_SERVER['DOCUMENT_ROOT']."/inc/function.inc";
+  $conn = getConnection();
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,7 +18,7 @@ $connect = mysqli_connect("localhost","parkky0331","parkky0331_db", "parkky0331"
 	<title>모바일인터넷과 영단어</title>
 </head>
 <body>
-	<div data-role="page" id="page_index" data-theme="">
+	<div data-role="page" id="page_index" data-theme="a">
 		<div data-role="header" align="center">
 			<p id="date_write"></p>
 			<script>
@@ -41,7 +42,7 @@ $connect = mysqli_connect("localhost","parkky0331","parkky0331_db", "parkky0331"
 					//첫번째는 단어, 정답
 					$sql = "select * from test_list_collect	where word_order = '$count'+1";
 
-					$result = mysqli_query($connect, $sql);
+					$result = mysqli_query($conn, $sql);
 					$row = mysqli_fetch_array($result);
 
 					echo "
