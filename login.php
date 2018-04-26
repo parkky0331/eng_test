@@ -1,13 +1,15 @@
 <?
 if(!isset($_SESSION)) 
 { 
+  //세션이 없다면 세션을 새로 시작해서 로그인
   session_start();
 }else{
-
-  $connect = mysqli_connect("localhost","parkky0331","parkky0331_db", "parkky0331");
+  include_once $_SERVER['DOCUMENT_ROOT']."./inc/conn.inc";
+  $conn = getConnection();
   $student_code = $_SESSION['student_code'];
+  //이후 돌아가기 버튼을 사용자별로 다르게 하기 위해 db값 확인
   $admin_check = "select admin from user_info_max where student_code = '$student_code'";
-  $admin = mysqli_query($connect, $admin_check);
+  $admin = mysqli_query($conn, $admin_check);
   $row_admin = mysqli_fetch_array($admin);
 }
 ?>

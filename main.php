@@ -1,9 +1,3 @@
-<?
-    //$connect = mysql_connect("localhost","octopus3","1234"); // DB 연결
-    //mysql_select_db("octopus3_db", $connect);                // DB 선택
-// $connect = mysqli_connect("localhost","parkky0331","parkky0331_db", "parkky0331");
-session_start();
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,16 +26,19 @@ session_start();
       ?>
     </div>
     <div data-role="content">
-      <img style="width: 20%; height: 10%;" src="img/mark2.png">
+      <img style="width: 100px; height: 100px; " align="center" src="img/mark2.png">
       <form>
         <div><!-- 영단어 공부 -->
-          <a href="sql_test_list_check.php">영단어 공부</a>
+          <!-- <a href="sql_test_list_check.php">영단어 공부</a> -->
+          <button class="btn-sign" onclick="location.href='sql_test_list_check.php'">영단어 공부</button>
         </div>
         <div><!-- 영단어 시험 -->
-          <a href="test.php">영단어 시험</a>
+          <!-- <a href="test.php">영단어 시험</a> -->
+          <button class="btn-sign" onclick="location.href='test.php'">영단어 시험</button>
         </div>
         <div><!-- 시험 결과 -->
-          <a href="#">시험 결과</a>
+          <!-- <a href="#">시험 결과</a> -->
+          <button class="btn-sign" onclick="location.href='#'">시험 결과</button>
         </div>
       </form>
     </div>
