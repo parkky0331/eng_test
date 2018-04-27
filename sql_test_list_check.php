@@ -1,8 +1,16 @@
 <?
     //$connect = mysql_connect("localhost","octopus3","1234"); // DB 연결
     //mysql_select_db("octopus3_db", $connect);                // DB 선택
-include_once $_SERVER['DOCUMENT_ROOT']."./inc/conn.inc";
+include_once $_SERVER['DOCUMENT_ROOT']."/inc/conn.inc";
 $conn = getConnection();
+
+// mysql_query("set session character_set_connection=utf8;");
+
+// mysql_query("set session character_set_results=utf8;");
+
+// mysql_query("set session character_set_client=utf8;");
+
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -26,13 +34,21 @@ $conn = getConnection();
 			<script>
 				dateWrite();
 			</script>
+		<button onclick="window.history.back()">뒤로가기</button>
 		</div>
-		<table data-role="table" data-mode="columntoggle" cellpadding="5">
+		<div data-role="popup" id="table-column-toggle-popup" class="ui-table-columntoggle-popup">
+			<fieldset data-role="controlgroup">
+				<label>단어<input type="checkbox" checked data-cacheval="false" locked="true"></input></label>
+				<label>뜻<input type="checkbox" checked data-cacheval="false" locked="true"></input></label>
+			</fieldset>
+		</div>
+		<a href="#table-column-toggle-popup" class="ui-table-columntoggle-btn ui-btn ui-btn-b ui-corner-all ui-shadow ui-mini" data-rel="popup">단어 / 뜻</a>
+		<table data-role="table" id="table-column-toggle" data-mode="columntoggle" data-enhanced="true" class="ui-table ui-table-columntoggle" data-column-btn-theme="b">
 			<thead>
 				<tr align="center">
-					<td>num</td>
-					<td>eng</td>
-					<td>mean</td>
+					<!-- <th data-priority="1" data-colstart="1" class="ui-table-priority-1 ui-table-cell-visible">num</th> -->
+					<th data-priority="2" data-colstart="2" class="ui-table-priority-2 ui-table-cell-visible">단어</th>
+					<th data-priority="3" data-colstart="3" class="ui-table-priority-3 ui-table-cell-visible">뜻</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -46,9 +62,8 @@ $conn = getConnection();
 
 					echo "
 					<tr align='center'>
-					<td>$row[word_num]</td>
-					<td>$row[word_eng]</td>
-					<td>$row[word_mean]</td>";
+					<td class=\"ui-table-priority-2 ui-table-cell-visible\">$row[word_eng]</td>
+					<td class=\"ui-table-priority-3 ui-table-cell-visible\">$row[word_mean]</td>";
 
 					echo "</tr>";
 				}

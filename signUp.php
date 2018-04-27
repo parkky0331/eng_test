@@ -43,7 +43,7 @@
 					exit();
 				}
 
-				include_once $_SERVER['DOCUMENT_ROOT']."./inc/conn.inc";
+				include_once $_SERVER['DOCUMENT_ROOT']."/inc/conn.inc";
 				$conn = getConnection();
 
 			//중복 된 학번인 경우 다시 할 수 있게

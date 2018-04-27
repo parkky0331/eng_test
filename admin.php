@@ -33,14 +33,14 @@
 			if(!isset($_SESSION['student_code'])){
 				header('Location: ./login.php');
 			}
-			function logout(){
-				header('Location: ./logout.php');
-			}
-			if(isset($_GET['logout'])){
-				logout();
-			}
+			// function logout(){
+			// 	header('Location: ./logout.php');
+			// }
+			// if(isset($_GET['logout'])){
+			// 	logout();
+			// }
 			echo "홈(로그인 성공)";
-			echo "<a href=admin.php?logout=true>로그아웃</a>";
+			echo "<a href=logout.php>로그아웃</a>";
 			?>
 			<button class="btn-sign" onclick="location.href='sql_test.php'">문제 리스트 생성</button>
 			<button class="btn-sign" onclick="location.href='sql_test_list_check.php'">생성된 문제 리스트 확인</button>
