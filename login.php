@@ -4,7 +4,7 @@ if(!isset($_SESSION))
   //세션이 없다면 세션을 새로 시작해서 로그인
   session_start();
 }else{
-  include_once $_SERVER['DOCUMENT_ROOT']."./inc/conn.inc";
+  include_once $_SERVER['DOCUMENT_ROOT']."/inc/conn.inc";
   $conn = getConnection();
   $student_code = $_SESSION['student_code'];
   //이후 돌아가기 버튼을 사용자별로 다르게 하기 위해 db값 확인

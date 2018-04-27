@@ -1,5 +1,5 @@
 <?
-  include_once $_SERVER['DOCUMENT_ROOT']."/inc/function.inc";
+  include_once $_SERVER['DOCUMENT_ROOT']."/inc/conn.inc";
   $conn = getConnection();
 ?>
 <!DOCTYPE html>
@@ -26,7 +26,7 @@
 			</script>
 		</div>
 		<div data-role="content">
-			<table width="1024" border="1" cellpadding="5">
+			<table border="1">
 				<tr align="center" bgcolor="#00FF62">
 					<td>num</td>
 					<td>eng</td>
@@ -58,14 +58,14 @@
 
 						$sql = "select word_mean from test_list where word_num = '$dbArray_a[$count_a]'";
 
-						$result_a = mysqli_query($connect, $sql);
+						$result_a = mysqli_query($conn, $sql);
 						$row_a = mysqli_fetch_array($result_a);
 						echo "
 						<td>$row_a[word_mean]</td>";
 					}
 				}
 				echo "</tr>";
-				mysqli_close($connect);
+				mysqli_close($conn);
 				?>
 
 			</table>

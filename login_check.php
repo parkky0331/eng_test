@@ -1,6 +1,6 @@
 <?
 //DB연결
-include_once $_SERVER['DOCUMENT_ROOT']."./inc/conn.inc";
+include_once $_SERVER['DOCUMENT_ROOT']."/inc/conn.inc";
 $conn = getConnection();
 //이전페이지에서 학번, 비밀번호 받아옴
 $student_code = $_REQUEST['student_code'];

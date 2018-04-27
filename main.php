@@ -26,7 +26,7 @@
       ?>
     </div>
     <div data-role="content">
-      <img style="width: 100px; height: 100px; " align="center" src="img/mark2.png">
+      <img style="width: 100px; height: 100px; display: block; margin-left: auto; margin-right: auto;" src="img/mark2.png">
       <form>
         <div><!-- 영단어 공부 -->
           <!-- <a href="sql_test_list_check.php">영단어 공부</a> -->
