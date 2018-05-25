@@ -39,14 +39,13 @@ if(!isset($_SESSION))
     <div class="container" align="center">
       <img width="20%" height="10%" src="img/mark.png">
       <?
-
       // print_r($_SESSION);
       //세션에서 학번, 비밀번호 데이터가 들어왔는지 확인
       //로그인 한 상태에서 로그인 페이지로 접속 할 시 로그인 중 이라는 페이지 출력
       if(isset($_SESSION['student_code']) || isset($_SESSION['password'])){
         $student_code = $_SESSION['student_code'];
         $name = $_SESSION['name'];
-        echo "<p><strong>$name</strong>(";
+        echo "<p><strong>{$name}</strong>(";
         echo $_SESSION["student_code"];
         echo ")님은 이미 로그인하고 있습니다.</br>";
         if($row_admin['admin'] != 0){

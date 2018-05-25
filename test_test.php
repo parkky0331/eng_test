@@ -1,6 +1,18 @@
-<meta charset="utf-8">
+<?
+include_once $_SERVER['DOCUMENT_ROOT']."/inc/conn.inc";
+$conn = getConnection();
+
+$test_conf_sql = "select * from test_conf where sql_check = 0";
+
+$test_conf_sql_result = mysqli_query($conn, $test_conf_sql);
+$test_conf_row = mysqli_fetch_array($test_conf_sql_result);
+
+print_r($test_conf_row);
+
+echo "$test_conf_row[test_delay]";
+?>
 <script language="javascript">
-var delay=5; //시간설정
+var delay=<?php echo "$test_conf_row[test_delay]"; ?>; //시간설정
 var correctAnswers=new Array("a","a","a","a","a");  //정답
 var q_num=1;
 var timer;
@@ -57,10 +69,23 @@ function hide_timer(clock){
 
 window.onload=show_question;
 </script>
-<title>모바일인터넷과 영단어</title>
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="shortcut icon" type="image/x-icon" href="" />
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" user-scalable=no minimum-scale=1/>
+	<!-- <link rel="stylesheet" href="css/bootstrap.css"> -->
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script> -->
+	<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script> -->
+	<script type="text/javascript" src="./js/js-all.js"></script>
+	<title>모바일인터넷과 영단어</title>
 </head>
 <body>
-	<div data-role="page" id="page_order01" data-theme="b">
+	<div data-role="page" id="page_order01" data-theme="a">
 		<div data-role="header">
 			<a href="#" data-rel="back">뒤로가기</a>
 			<h2>문제 예시</h2>
@@ -78,7 +103,7 @@ window.onload=show_question;
 					<input type="button" onclick="check_answer('c')" value="사아자">
 					<input type="button" onclick="check_answer('d')" value="차카타">
 				</fieldset>
-<? echo "TEST"; ?>
+				<? echo "TEST"; ?>
 			</div>
 
 			<div id="question2" style="display:none">
