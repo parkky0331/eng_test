@@ -1,6 +1,11 @@
 <?
-  include_once $_SERVER['DOCUMENT_ROOT']."/inc/conn.inc";
-  $conn = getConnection();
+include_once $_SERVER['DOCUMENT_ROOT']."/inc/conn.inc";
+$conn = getConnection();
+
+$test_conf_sql = "select * from test_conf where sql_check = 0";
+
+$test_conf_sql_result = mysqli_query($conn, $test_conf_sql);
+$test_conf_row = mysqli_fetch_array($test_conf_sql_result);
 ?>
 <!DOCTYPE html>
 <html>
@@ -36,12 +41,15 @@
 				</thead>
 				<tbody>
 					<?
-					for($count = 0; $count < 5; $count++){
+					$test_list_collect_sql = "select count(*) from test_list_collect";
+					$test_list_collect_result = mysqli_query($conn, $test_list_collect_sql);
+					$test_list_collect_row = mysqli_fetch_array($test_list_collect_result);
+					for($count = 0; $count <$test_list_collect_row[0]; $count++){
 						$sql_list_reset = "delete from test_list_collect where word_order = '$count'+1";
 						$result_list_reset = mysqli_query($conn, $sql_list_reset);
 					}
 
-					for ($count=0; $count < 5 ; $count++) { 
+					for ($count=0; $count < $test_conf_row['test_count']; $count++) { 
 					//랜덤으로 문제 추출
 					// 아직 중복체크는 확인 못 함
 						$value = mt_rand(1, 100);

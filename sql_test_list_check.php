@@ -1,15 +1,11 @@
 <?
-    //$connect = mysql_connect("localhost","octopus3","1234"); // DB 연결
-    //mysql_select_db("octopus3_db", $connect);                // DB 선택
 include_once $_SERVER['DOCUMENT_ROOT']."/inc/conn.inc";
 $conn = getConnection();
 
-// mysql_query("set session character_set_connection=utf8;");
+$test_conf_sql = "select * from test_conf where sql_check = 0";
 
-// mysql_query("set session character_set_results=utf8;");
-
-// mysql_query("set session character_set_client=utf8;");
-
+$test_conf_sql_result = mysqli_query($conn, $test_conf_sql);
+$test_conf_row = mysqli_fetch_array($test_conf_sql_result);
 
 ?>
 <!DOCTYPE html>
@@ -34,7 +30,7 @@ $conn = getConnection();
 			<script>
 				dateWrite();
 			</script>
-		<button onclick="window.history.back()">뒤로가기</button>
+			<button onclick="window.history.back()">뒤로가기</button>
 		</div>
 		<div data-role="popup" id="table-column-toggle-popup" class="ui-table-columntoggle-popup">
 			<fieldset data-role="controlgroup">
@@ -53,7 +49,7 @@ $conn = getConnection();
 			</thead>
 			<tbody>
 				<?
-				for ($count=0; $count < 5 ; $count++) { 
+				for ($count=0; $count < $test_conf_row['test_count']; $count++) { 
 				//저장되어있는 시험용 db table 출력
 					$sql = "select * from test_list_collect	where word_order = '$count'+1";
 
