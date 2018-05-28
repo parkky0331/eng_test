@@ -15,80 +15,12 @@ $test_list_collect_row = mysqli_fetch_array($test_list_collect_result);
 
 $test_list_collect_rownum = mysqli_num_rows($test_list_collect_result);
 $test_list_collect_fieldnum = mysqli_num_fields($test_list_collect_result);
-print($test_list_collect_rownum);
-print($test_list_collect_fieldnum);
 for($i = 0; $i < $test_list_collect_rownum; $i++){
 	for($j = 0; $j < $test_list_collect_fieldnum; $j++){
-		$test_list_collect_fullArray[$i][$j] = mysqli_result($test_list_collect_result, $i, $j);
+		$test_list_collect_fullArray[$i][$j] = mysqli_result($test_list_collect_result, $i, $j);//시험문제 모아놓은 테이블 배열로 저장
 	}
 }
-print_r($test_list_collect_fullArray[2][0]);
-
 ?>
-<script language="javascript">
-var delay=<? echo "$test_conf_row[test_delay]"; ?>; //시간설정
-var correctAnswers = new Array();
-<? $temp = 0; ?>
-for(var i = 0; i < <? echo "$test_conf_row[test_count]"; ?>; i++){
-	correctAnswers[i] = <? print($test_list_collect_fullArray[$temp][0]); ?>;
-}
-alert(correctAnswers.toString());
-// var correctAnswers=new Array("a","a","a","a","a");  //정답
-var q_num=1;
-var timer;
-var layer;
-var clock=delay;
-var score=0;
-
-function show_question(){
-	if (layer=eval("document.all.question"+q_num)){
-		layer.style.display="inline";
-		document.all.timeLeft.innerHTML=clock;
-		hide_question();
-	} else {
-		document.all.timeLeft.innerHTML=0;
-		document.all.quizScore.innerHTML="당신은 "+(q_num-1)+"문제중 "+score+"개를 맞췄습니다.";
-		document.all.quizScore.style.display="inline";
-	}
-}
-
-function hide_question(){
-	if (clock>0) {
-		document.all.timeLeft.innerHTML=clock;
-		clock--;
-		timer=setTimeout("hide_question()",1000);
-	} else {
-		clearTimeout(timer);
-		document.all.answerBoard.innerHTML=" ";
-		clock=delay;
-		layer.style.display="none";
-		q_num++;
-		show_question();
-	}
-	hide_timer(clock);
-}
-
-function check_answer(answer){
-	if (correctAnswers[q_num-1]==answer){
-		score++;
-		document.all.answerBoard.innerHTML="<font color=blue><b>정답입니다.</b></font>";
-	} else {
-		document.all.answerBoard.innerHTML="<font color=red><b>땡! 틀렸습니다.</b></font>";
-	}
-	clock=0;
-	clearTimeout(timer);
-	timer=setTimeout("hide_question()",700);
-}
-function hide_timer(clock){
-	if(clock>0){
-		document.getElementById("hide_timer").style.display = "block";
-	}else{
-		document.getElementById("hide_timer").style.display = "none";
-	}
-}
-
-window.onload=show_question;
-</script>
 <!DOCTYPE html>
 <html>
 <head>
@@ -113,51 +45,95 @@ window.onload=show_question;
 			</script>
 		</div>
 		<div data-role="content">
-			<table border="1">
-				<tr align="center" bgcolor="#00FF62">
-					<td>num</td>
-					<td>eng</td>
-					<td>mean</td>
-					<td>answer</td>
-					<td>answer</td>
-					<td>answer</td>
-				</tr>
-				<?
-				for ($count=0; $count < $test_conf_row['test_count'] ; $count++) { 
+			<?
+			for($i = 1; $i < $test_conf_row['test_count']+1; $i++){
 
-					//시험 문제 출력 부분
-					//첫번째는 단어, 정답
-					$sql = "select * from test_list_collect	where word_order = '$count'+1";
 
-					$result = mysqli_query($conn, $sql);
-					$row = mysqli_fetch_array($result);
-
-					echo "
-					<tr align='center'>
-					<td>$row[word_order]</td>
-					<td>$row[word_eng]</td>
-					<td>$row[word_mean]</td>";
-
-					for ($count_a=0; $count_a <3 ; $count_a++) {
-						//두번째는 보기 세가지
-						$value_a = mt_rand(1,100);
-						$dbArray_a[$count_a] = $value_a;
-
-						$sql = "select word_mean from test_list where word_num = '$dbArray_a[$count_a]'";
-
-						$result_a = mysqli_query($conn, $sql);
-						$row_a = mysqli_fetch_array($result_a);
-						echo "
-						<td>$row_a[word_mean]</td>";
-					}
+				echo "
+				<b>$i 번 문제 : 
+				";
+				print($test_list_collect_fullArray[$i-1][1]);
+				echo "</b>
+				<fieldset>
+				";
+				for($j = 0; $j < 5; $j++){
+					echo "<input type='button' onclick='check_answer('a')' value='"; print($test_list_collect_fullArray[$i-1][2]);echo "'>";
 				}
-				echo "</tr>";
-				mysqli_close($conn);
-				?>
+				echo "				
+				</fieldset>
+				<br>
+				";
 
-			</table>
+				
+			}
+
+			?>
+
+
+
+
+
 		</div>
 	</div>
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<table border="1">
+<tr align="center" bgcolor="#00FF62">
+<td>num</td>
+<td>eng</td>
+<td>mean</td>
+<td>answer</td>
+<td>answer</td>
+<td>answer</td>
+</tr>
+<?
+for ($count=0; $count < $test_conf_row['test_count'] ; $count++) { 
+
+		//시험 문제 출력 부분
+		//첫번째는 단어, 정답
+	$sql = "select * from test_list_collect	where word_order = '$count'+1";
+
+	$result = mysqli_query($conn, $sql);
+	$row = mysqli_fetch_array($result);
+
+	echo "
+	<tr align='center'>
+	<td>$row[word_order]</td>
+	<td>$row[word_eng]</td>
+	<td>$row[word_mean]</td>";
+
+	for ($count_a=0; $count_a <3 ; $count_a++) {
+			//두번째는 보기 세가지
+		$value_a = mt_rand(1,100);
+		$dbArray_a[$count_a] = $value_a;
+
+		$sql = "select word_mean from test_list where word_num = '$dbArray_a[$count_a]'";
+
+		$result_a = mysqli_query($conn, $sql);
+		$row_a = mysqli_fetch_array($result_a);
+		echo "
+		<td>$row_a[word_mean]</td>";
+	}
+}
+echo "</tr>";
+mysqli_close($conn);
+?>
+
+</table> -->
