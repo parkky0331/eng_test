@@ -34,7 +34,11 @@
         </div>
         <div><!-- 영단어 시험 -->
           <!-- <a href="test.php">영단어 시험</a> -->
-          <button class="btn-sign" onclick="location.href='test.php'">영단어 시험</button>
+          <button class="btn-sign" onclick="location.href='test_test.php'">영단어 시험</button>
+        </div>
+        <div><!-- 영단어 시험 -->
+          <!-- <a href="test.php">영단어 시험</a> -->
+          <button class="btn-sign" onclick="location.href='test_javascript.php'">영단어 시험(javascript)</button>
         </div>
         <div><!-- 시험 결과 -->
           <!-- <a href="#">시험 결과</a> -->

@@ -55,7 +55,8 @@
 					exit();
 				}
 
-				$signup = mysqli_query($mysqli, "insert into user_info_max (student_code, password, name, student_class) value('$student_code', '$password', '$name', '$student_class')");
+				$signup = mysqli_query($conn, "insert into user_info_max (student_code, password, name, student_class) value('$student_code', '$password', '$name', '$student_class')");
+				$create_user_table = "create table "+$student_code+""
 
 			//값이 정상적으로 들어 오면 완료 되었다고 표시
 				if($signup){
