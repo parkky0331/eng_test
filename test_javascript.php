@@ -57,7 +57,9 @@ for($i = 0; $i < $test_list_collect_rownum; $i++){
 				<fieldset>
 				";
 				for($j = 0; $j < 5; $j++){
-					echo "<input type='button' onclick='check_answer('a')' value='"; print($test_list_collect_fullArray[$i-1][2]);echo "'>";
+					echo "<input type='button' onclick='check_answer('a')' value='";
+					print($test_list_collect_fullArray[$i-1][2]);
+					echo "'>";
 				}
 				echo "				
 				</fieldset>
